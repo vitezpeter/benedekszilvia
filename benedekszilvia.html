@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Benedek Szilvia | Munka- és szervezetpszichológus Budán – Prototípus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== DESIGN SYSTEM ===== */
+    :root {
+      --bg-primary: #FAFAF9;
+      --bg-secondary: #F5F0E6;
+      --color-primary: #8FA99A;
+      --color-cta: #6B9B9B;
+      --color-cta-hover: #5A8A8A;
+      --color-accent: #D4A5A5;
+      --text-heading: #2D3748;
+      --text-body: #4A5568;
+      --text-light: #718096;
+      --border: #E2E8F0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --radius: 12px;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-size-base: 18px;
+      --line-height: 1.6;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-base);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height);
+      color: var(--text-body);
+      background: var(--bg-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-heading);
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: var(--spacing-sm);
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    p { margin-bottom: var(--spacing-sm); }
+    a { color: var(--color-cta); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--color-cta-hover); }
+    img { max-width: 100%; height: auto; border-radius: var(--radius); display: block; }
+    ul { padding-left: var(--spacing-md); margin-bottom: var(--spacing-sm); }
+    li { margin-bottom: 0.25rem; }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-md); }
+    .section { padding: var(--spacing-xl) 0; }
+    .section-alt { background: var(--bg-secondary); }
+    .text-center { text-align: center; }
+    .mb-lg { margin-bottom: var(--spacing-lg); }
+    .mb-xl { margin-bottom: var(--spacing-xl); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.5rem;
+      background: var(--color-cta);
+      color: white;
+      border-radius: 8px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      text-align: center;
+    }
+    .btn:hover { background: var(--color-cta-hover); }
+    .btn:active { transform: scale(0.98); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-cta);
+      border: 2px solid var(--color-cta);
+    }
+    .btn-secondary:hover { background: rgba(107, 155, 155, 0.1); }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* ===== HEADER & NAV ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-sm) 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-weight: 700;
+      color: var(--text-heading);
+      font-size: 1.25rem;
+    }
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.875rem;
+    }
+    nav ul {
+      display: flex;
+      gap: var(--spacing-md);
+      list-style: none;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text-body);
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    nav a:hover, nav a.active { color: var(--color-cta); }
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--color-cta);
+      border-radius: 2px;
+    }
+    .nav-cta { margin-left: var(--spacing-md); }
+    .mobile-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: var(--spacing-xl) 0;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: center;
+    }
+    .hero-content { text-align: left; }
+    .hero-content h1 { margin-bottom: var(--spacing-sm); }
+    .hero-content p {
+      font-size: 1.125rem;
+      margin: 0 0 var(--spacing-lg);
+      color: var(--text-body);
+    }
+    .hero-cta { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+
+    /* ===== SERVICES GRID - 2x2 LAYOUT ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2x2 desktop */
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .service-image {
+      width: 100%;
+      height: 160px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.875rem;
+      margin-bottom: var(--spacing-sm);
+      overflow: hidden;
+    }
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    .service-card h3 { margin-bottom: var(--spacing-xs); }
+    .service-card p { color: var(--text-light); margin-bottom: var(--spacing-sm); flex-grow: 1; }
+    .service-card a { font-weight: 500; }
+
+    /* ===== TRUST SECTION ===== */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .trust-item {
+      display: flex;
+      gap: var(--spacing-sm);
+      align-items: flex-start;
+    }
+    .trust-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      background: white;
+      border-radius: var(--radius);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+      border: 1px solid var(--border);
+    }
+    .faq-question {
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: var(--spacing-xs);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      color: var(--text-body);
+      display: none;
+      padding-top: var(--spacing-xs);
+      border-top: 1px solid var(--border);
+      margin-top: var(--spacing-xs);
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-toggle { font-size: 1.25rem; color: var(--color-primary); transition: transform 0.2s; }
+    .faq-item.active .faq-toggle { transform: rotate(45deg); }
+
+    /* ===== PAGE CONTENT ===== */
+    .page { display: none; animation: fadeIn 0.3s ease; }
+    .page.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .page-header {
+      text-align: center;
+      padding: var(--spacing-xl) 0 var(--spacing-lg);
+      background: var(--bg-secondary);
+      margin-bottom: var(--spacing-lg);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    .page-header h1 { margin-bottom: var(--spacing-xs); }
+    .page-header p { max-width: 700px; margin: 0 auto; color: var(--text-light); }
+    .page-header-image {
+      margin-top: var(--spacing-md);
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      overflow: hidden;
+    }
+    .page-header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    /* ===== SERVICE PAGE STRUCTURE ===== */
+    .pain-points, .promises, .results { margin-bottom: var(--spacing-xl); }
+    .pain-points ul, .results ul { list-style: none; padding: 0; }
+    .pain-points li, .results li {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: white;
+      border-radius: 8px;
+      margin-bottom: var(--spacing-xs);
+      border-left: 4px solid var(--color-accent);
+    }
+    .promise-item {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+      padding: var(--spacing-sm);
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .promise-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .process-steps {
+      counter-reset: step;
+      margin-bottom: var(--spacing-xl);
+    }
+    .process-step {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+      position: relative;
+      padding-left: var(--spacing-lg);
+    }
+    .process-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0; top: 0;
+      width: 32px; height: 32px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .process-step h4 { margin-bottom: var(--spacing-xs); }
+
+    /* ===== PRICING TABLE - MODIFIED LAYOUT ===== */
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 cards in first row */
+      gap: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+    }
+    .pricing-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: var(--spacing-lg);
+      text-align: center;
+      border: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .pricing-card.featured {
+      border-color: var(--color-cta);
+      position: relative;
+    }
+    .pricing-card.featured::before {
+      content: 'Ajánlott';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-cta);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .pricing-card h3 { margin-bottom: var(--spacing-xs); }
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-cta);
+      margin: var(--spacing-sm) 0;
+    }
+    .pricing-card ul { list-style: none; padding: 0; margin: var(--spacing-md) 0; text-align: left; }
+    .pricing-card li { padding: 0.25rem 0; color: var(--text-body); }
+    .pricing-note {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-top: var(--spacing-sm);
+      font-style: italic;
+    }
+    
+    /* Tesztkitöltés card - centered, horizontal layout */
+    .pricing-card.test-card {
+      grid-column: 1 / -1; /* Full width */
+      max-width: 600px;
+      margin: var(--spacing-lg) auto 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md) var(--spacing-lg);
+    }
+    .pricing-card.test-card .price {
+      margin: 0;
+      font-size: 1.5rem;
+      text-align: right;
+      min-width: 120px;
+    }
+    .pricing-card.test-card .content { flex-grow: 1; }
+    .pricing-card.test-card h3 { margin-bottom: var(--spacing-xs); }
+    .pricing-card.test-card ul { margin: var(--spacing-sm) 0; columns: 2; column-gap: var(--spacing-md); }
+    .pricing-card.test-card ul li { font-size: 0.9rem; }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-lg);
+    }
+    .contact-info h3 { margin-bottom: var(--spacing-sm); }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+      padding: var(--spacing-sm);
+      background: white;
+      border-radius: 8px;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .contact-form {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .form-group { margin-bottom: var(--spacing-md); }
+    .form-group label {
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      font-weight: 500;
+      color: var(--text-heading);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .gdpr-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+    .gdpr-checkbox input { margin-top: 4px; }
+    .map-placeholder {
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      padding: var(--spacing-lg);
+      text-align: center;
+      color: var(--text-light);
+      margin-top: var(--spacing-lg);
+    }
+
+    /* ===== ABOUT PAGE ===== */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    .about-image {
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-weight: 500;
+      overflow: hidden;
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+    }
+    .expertise-card {
+      background: white;
+      padding: var(--spacing-md);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .expertise-card h4 { margin-bottom: var(--spacing-xs); }
+    .expertise-card ul { margin: 0; padding-left: var(--spacing-md); }
+    .quote {
+      background: var(--bg-secondary);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--color-accent);
+      font-style: italic;
+      margin: var(--spacing-lg) 0;
+    }
+
+    /* ===== BLOG LISTING ===== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .blog-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .blog-image {
+      height: 180px;
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.875rem;
+    }
+    .blog-content { padding: var(--spacing-md); }
+    .blog-meta {
+      display: flex;
+      gap: var(--spacing-sm);
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-bottom: var(--spacing-xs);
+    }
+    .blog-card h3 { margin-bottom: var(--spacing-xs); font-size: 1.25rem; }
+    .blog-card p { color: var(--text-light); margin-bottom: var(--spacing-sm); }
+    .blog-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: var(--spacing-sm); }
+    .blog-tag {
+      background: var(--bg-secondary);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--text-body);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-heading);
+      color: white;
+      padding: var(--spacing-xl) 0 var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    .footer-brand h3 { color: white; margin-bottom: var(--spacing-sm); }
+    .footer-brand p { color: #CBD5E1; }
+    .footer-links h4 { color: white; margin-bottom: var(--spacing-sm); }
+    .footer-links a {
+      display: block;
+      color: #CBD5E1;
+      margin-bottom: var(--spacing-xs);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+    .footer-nap {
+      background: rgba(255,255,255,0.1);
+      padding: var(--spacing-md);
+      border-radius: var(--radius);
+      margin-top: var(--spacing-md);
+    }
+    .footer-nap p { margin: 0.25rem 0; color: #E2E8F0; font-size: 0.95rem; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #A0AEC0;
+      font-size: 0.875rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { text-align: center; }
+      .hero-cta { justify-content: center; }
+      .hero-image { order: -1; }
+      .about-hero { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+      .pricing-table { grid-template-columns: 1fr; }
+      .pricing-card.test-card { flex-direction: column; text-align: center; }
+      .pricing-card.test-card .price { text-align: center; }
+      .pricing-card.test-card ul { columns: 1; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: wrap; }
+      nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding: var(--spacing-md) 0;
+        border-top: 1px solid var(--border);
+        margin-top: var(--spacing-sm);
+      }
+      nav ul.active { display: flex; }
+      .mobile-toggle { display: block; }
+      .nav-cta { margin: var(--spacing-sm) 0 0; width: 100%; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.75rem; }
+    }
+
+    /* ===== PAGE SWITCHER (for prototype) ===== */
+    .page-switcher {
+      position: fixed;
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+      background: white;
+      border-radius: 12px;
+      padding: var(--spacing-sm);
+      box-shadow: var(--shadow);
+      z-index: 200;
+      border: 1px solid var(--border);
+    }
+    .page-switcher select {
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 0.875rem;
+    }
+    .prototype-badge {
+      position: fixed;
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+      background: var(--color-accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 300;
+      box-shadow: var(--shadow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype badge -->
+  <div class="prototype-badge">🎨 Prototípus – Nem éles oldal</div>
+
+  <!-- Page switcher for prototype -->
+  <div class="page-switcher">
+    <select id="pageSelect" onchange="switchPage(this.value)">
+      <option value="home">🏠 Főoldal</option>
+      <option value="onbizalom">💪 Önbizalom</option>
+      <option value="karrier">🧭 Karrier</option>
+      <option value="stressz">🧘 Stressz</option>
+      <option value="vezeto">👥 Vezetői</option>
+      <option value="rolam">👤 Rólam</option>
+      <option value="arak">💰 Árak</option>
+      <option value="blog">📝 Blog</option>
+      <option value="kapcsolat">📞 Kapcsolat</option>
+    </select>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo" onclick="switchPage('home'); return false;">
+        <span class="logo-icon">🌿</span>
+        Benedek Szilvia
+      </a>
+      <button class="mobile-toggle" onclick="toggleMobileNav()">☰</button>
+      <nav>
+        <ul id="mainNav">
+          <li><a href="#" onclick="switchPage('home'); return false;" class="active" data-page="home">Főoldal</a></li>
+          <li><a href="#" onclick="switchPage('karrier'); return false;" data-page="karrier">Szolgáltatások</a></li>
+          <li><a href="#" onclick="switchPage('rolam'); return false;" data-page="rolam">Rólam</a></li>
+          <li><a href="#" onclick="switchPage('blog'); return false;" data-page="blog">Blog</a></li>
+          <li><a href="#" onclick="switchPage('arak'); return false;" data-page="arak">Árak</a></li>
+          <li><a href="#" onclick="switchPage('kapcsolat'); return false;" class="btn nav-cta" data-page="kapcsolat">Időpontot kérek</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main>
+
+    <!-- ===== HOMEPAGE ===== -->
+    <section id="home" class="page active">
+      <!-- Hero with image -->
+      <div class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <span class="badge">Személyes konzultáció Budán, II. kerület</span>
+              <h1>Találd meg az utad a munkahelyi kihívások között</h1>
+              <p>Munka- és szervezetpszichológusként segítek helyreállítani az önbizalmad, megtalálni a karrierutadat és megerősíteni vezetői kompetenciáidat – személyesen Budán vagy online.</p>
+              <div class="hero-cta">
+                <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek</button>
+                <button class="btn btn-secondary" onclick="switchPage('karrier')">Szolgáltatások felfedezése</button>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img src="/images/team/szilvia-portre.jpg" alt="Benedek Szilvia - munka- és szervezetpszichológus" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg-secondary);border-radius:var(--radius);color:var(--text-light);font-size:0.875rem\'>[Portré fotó: szilvia-portre.jpg]</div>'">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust section -->
+      <div class="section">
+        <div class="container">
+          <h2 class="text-center mb-lg">Miért válassz engem?</h2>
+          <div class="trust-grid">
+            <div class="trust-item">
+              <div class="trust-icon">🎓</div>
+              <div>
+                <h4>Szakmai háttér</h4>
+                <p>Munka- és szervezetpszichológus, karriertanácsadó, a Competence Expert tagja</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">🛠️</div>
+              <div>
+                <h4>Gyakorlati fókusz</h4>
+                <p>Nemcsak elméleti megoldásokat kapsz, hanem konkrét, alkalmazható stratégiákat</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">💬</div>
+              <div>
+                <h4>Megértő légkör</h4>
+                <p>Bizalmas, ítélkezésmentes tér, ahol valóban meghallgatnak</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services teaser - 2x2 GRID -->
+      <div class="section section-alt">
+        <div class="container">
+          <h2 class="text-center mb-lg">Miben tudok segíteni?</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-image">
+                <img src="/images/services/onbizalom-agilis.jpg" alt="Önbizalom és agilis működés" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light);font-size:0.875rem\'>[Kép: onbizalom-agilis.jpg]</span>'">
+              </div>
+              <div class="service-icon">⚡</div>
+              <h3>Önbizalom és agilis működés</h3>
+              <p>Bontsd le a gátló hiedelmeket és építsd fel a magabiztos, rugalmas munkavégzést</p>
+              <a href="#" onclick="switchPage('onbizalom'); return false;">Részletek →</a>
+            </div>
+            <div class="service-card">
+              <div class="service-image">
+                <img src="/images/services/karrier-iranykereses.jpg" alt="Karrier és szakmai iránykeresés" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light);font-size:0.875rem\'>[Kép: karrier-iranykereses.jpg]</span>'">
+              </div>
+              <div class="service-icon">🧭</div>
+              <h3>Karrier és szakmai iránykeresés</h3>
+              <p>Támogatás a karrierút minden szakaszában – pályaválasztástól a vezetői fejlődésig</p>
+              <a href="#" onclick="switchPage('karrier'); return false;">Részletek →</a>
+            </div>
+            <div class="service-card">
+              <div class="service-image">
+                <img src="/images/services/stressz-kieges.jpg" alt="Munkahelyi stressz és kiégés" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light);font-size:0.875rem\'>[Kép: stressz-kieges.jpg]</span>'">
+              </div>
+              <div class="service-icon">🔋</div>
+              <h3>Munkahelyi stressz és kiégés</h3>
+              <p>Előzd meg vagy kezeld a kiégést, és állítsd helyre a munkahelyi egyensúlyt</p>
+              <a href="#" onclick="switchPage('stressz'); return false;">Részletek →</a>
+            </div>
+            <div class="service-card">
+              <div class="service-image">
+                <img src="/images/services/vezetoi-dontesek.jpg" alt="Vezetői működés és döntési helyzetek" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light);font-size:0.875rem\'>[Kép: vezetoi-dontesek.jpg]</span>'">
+              </div>
+              <div class="service-icon">👥</div>
+              <h3>Vezetői működés és döntési helyzetek</h3>
+              <p>Fejleszd vezetői kompetenciáidat és kezeld magabiztosan a csapatod</p>
+              <a href="#" onclick="switchPage('vezeto'); return false;">Részletek →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GEO section -->
+      <div class="section">
+        <div class="container text-center">
+          <h2 class="mb-lg">Személyes találkozások Budán</h2>
+          <p style="max-width: 700px; margin: 0 auto var(--spacing-lg);">
+            A konzultációkra a budai II. kerületben, a Komjádi Béla utcában várlak egy csendes, nyugodt környezetben. Ha nem tudsz személyesen jönni, online konzultációt is kínálok.
+          </p>
+          <button class="btn btn-secondary" onclick="switchPage('kapcsolat')">Lásd a pontos címet</button>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section section-alt">
+        <div class="container">
+          <h2 class="text-center mb-lg">Gyakran ismételt kérdések</h2>
+          <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Milyen esetekben érdemes munka- és szervezetpszichológushoz fordulni?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                Akkor érdemes konzultációt kérned, ha munkahelyi stresszt, kiégést tapasztalsz, bizonytalan vagy a karrierutadban, nehézségeid vannak az önbizalmaddal, vagy vezetőként szeretnéd fejleszteni kompetenciáidat. Nem kell megvárnod a krízist – megelőzésre is kiválóan alkalmas a pszichológiai támogatás.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Mennyi idő egy konzultáció és hányszor érdemes jönni?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                Egy alkalom 50 percig tart. A szükséges ülések száma egyéni – egyes témákhoz 3-5 alkalom is elegendő lehet, míg komplexebb kérdések (pl. karrierváltás, kiégés) hosszabb, 8-12 üléses folyamatot igényelhetnek. Az első konzultáción felmérjük a helyzetedet és közösen meghatározzuk a célokat.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Mi a különbség a karriertanácsadás és a munka- és szervezetpszichológiai konzultáció között?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                A karriertanácsadás gyakran fókuszálhat csak a gyakorlati lépésekre (pl. önéletrajz, álláskeresés). Munka- és szervezetpszichológusként mélyebben vizsgálom a pszichológiai hátteret: a motivációidat, értékeidet, gátló hiedelmeidet, így nemcsak a 'mit', hanem a 'miért'-et is megérted, ami tartós változást eredményez.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Online konzultáció is lehetséges?</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                Igen, személyes találkozók mellett online konzultációt is kínálok Zoom vagy Google Meet platformon. Az online forma ugyanolyan hatékony lehet, különösen, ha időhiánnyal küzdesz vagy távolabb élsz.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG LISTING PAGE (NEW) ===== -->
+    <section id="blog" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Blog – Pszichológiai írások a munkáról és karrierről</h1>
+          <p>Gyakorlati tanácsok, önismereti témák és szakmai betekintés – AEO-optimalizált tartalommal</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="blog-grid">
+          <!-- Blog post 1 -->
+          <article class="blog-card">
+            <div class="blog-image">[Kép: palyavalasztas-5-dolog.jpg]</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>📅 2025. máj. 26.</span>
+                <span>🏷️ Karrier</span>
+              </div>
+              <h3>Mi leszel, ha nagy leszel? 5 dolog, amit érdemes megfontolni pályaválasztás előtt</h3>
+              <p>Pályaválasztás előtt állsz? 5 gyakorlati tanács munka- és szervezetpszichológustól, hogy tudatosan válaszd meg az utad.</p>
+              <div class="blog-tags">
+                <span class="blog-tag">pályaválasztás</span>
+                <span class="blog-tag">karriertanácsadás</span>
+                <span class="blog-tag">önismeret</span>
+              </div>
+              <a href="#" onclick="alert('Blog poszt tartalma a migrált Markdown fájlban elérhető.'); return false;">Olvasd el →</a>
+            </div>
+          </article>
+          
+          <!-- Blog post 2 -->
+          <article class="blog-card">
+            <div class="blog-image">[Kép: vezetoi-dontesek.jpg]</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>📅 2023. jún. 19.</span>
+                <span>🏷️ Vezetői működés</span>
+              </div>
+              <h3>Mérgező főnök mellett is boldogan – 11 pszichológiai stratégia</h3>
+              <p>Nehéz főnökkel dolgozol? 11 gyakorlati, pszichológiailag megalapozott stratégia a stressz csökkentésére.</p>
+              <div class="blog-tags">
+                <span class="blog-tag">vezetői működés</span>
+                <span class="blog-tag">munkahelyi stressz</span>
+                <span class="blog-tag">konfliktuskezelés</span>
+              </div>
+              <a href="#" onclick="alert('Blog poszt tartalma a migrált Markdown fájlban elérhető.'); return false;">Olvasd el →</a>
+            </div>
+          </article>
+          
+          <!-- Blog post 3 -->
+          <article class="blog-card">
+            <div class="blog-image">[Kép: dontes-5-alapelv.jpg]</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>📅 2023. jún. 19.</span>
+                <span>🏷️ Egyensúly</span>
+              </div>
+              <h3>A jó döntés 5 alapelve – pszichológiai keretek a tudatos választáshoz</h3>
+              <p>Döntési nehézségek? 5 pszichológiailag megalapozott alapelv a tudatos döntéshozatalhoz.</p>
+              <div class="blog-tags">
+                <span class="blog-tag">döntéshozatal</span>
+                <span class="blog-tag">önismeret</span>
+                <span class="blog-tag">érzelmi intelligencia</span>
+              </div>
+              <a href="#" onclick="alert('Blog poszt tartalma a migrált Markdown fájlban elérhető.'); return false;">Olvasd el →</a>
+            </div>
+          </article>
+          
+          <!-- Blog post 4 -->
+          <article class="blog-card">
+            <div class="blog-image">[Kép: onbizalom-agilis.jpg]</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>📅 2023. jún. 19.</span>
+                <span>🏷️ Önbizalom</span>
+              </div>
+              <h3>Önbizalom nélkül – Így látom én a világot</h3>
+              <p>Hogyan torzítja az önbizalomhiány a valóságérzékelésünket? Pszichológiai betekintés és gyakorlati lépések.</p>
+              <div class="blog-tags">
+                <span class="blog-tag">önbizalom</span>
+                <span class="blog-tag">önismeret</span>
+                <span class="blog-tag">belső párbeszéd</span>
+              </div>
+              <a href="#" onclick="alert('Blog poszt tartalma a migrált Markdown fájlban elérhető.'); return false;">Olvasd el →</a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center" style="margin-top: var(--spacing-xl);">
+          <p style="color: var(--text-light); margin-bottom: var(--spacing-md);">További cikkek a migrált tartalomban elérhetők.</p>
+          <button class="btn btn-secondary" onclick="switchPage('kapcsolat')">Kérdésed van egy témával kapcsolatban?</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SZOLGÁLTATÁS: ÖNBIZALOM (with image) ===== -->
+    <section id="onbizalom" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Önbizalom és agilis működés</h1>
+          <p>Bontsd le a gátló hiedelmeket és építsd fel a magabiztos, rugalmas munkavégzést</p>
+          <div class="page-header-image">
+            <img src="/images/services/onbizalom-agilis.jpg" alt="Önbizalom és agilis működés" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light)\'>[Kép: onbizalom-agilis.jpg]</span>'">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pain-points">
+          <h3>Ismerős helyzetek?</h3>
+          <ul>
+            <li>Gyakran kételkedsz a saját képességeidben, annak ellenére, hogy vannak eredményeid?</li>
+            <li>Kerülöd a kihívásokat vagy az új feladatokat, mert félsz a kudarctól?</li>
+            <li>Túl sokat rágódsz a hibáidon és mások véleményén?</li>
+            <li>Nehéz számodra kiállni magadért, nemet mondani vagy határokat szabni?</li>
+            <li>Merevnek érzed magad a változásokkal szemben, és ez gátol a fejlődésben?</li>
+          </ul>
+          <p><em>Az alacsony önbizalom és a rugalmatlanság nemcsak a teljesítményedet befolyásolja, hanem a munkahelyi jólétedet és a karrierlehetőségeidet is korlátozza. De ez változtatható.</em></p>
+        </div>
+
+        <div class="promises">
+          <h3>Mit kapsz a konzultációk során?</h3>
+          <div class="promise-item">
+            <div class="promise-icon">🔍</div>
+            <div><strong>Önismeret mélyítése</strong><br>Megérted, milyen gátló hiedelmek és negatív belső párbeszédek állnak a magabiztosságod útjában</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🛠️</div>
+            <div><strong>Gyakorlati eszközök</strong><br>Konkrét technikákat tanulsz az önbizalomépítésre, a stresszkezelésre és a rugalmas gondolkodásra</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🔄</div>
+            <div><strong>Agilis szemlélet</strong><br>Megtanulsz alkalmazkodni a változásokhoz, és proaktívan reagálni a kihívásokra</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🌱</div>
+            <div><strong>Tartós változás</strong><br>Nem csak felszíni tippeket kapsz, hanem a gondolkodásmódodat alakítjuk át fenntartható módon</div>
+          </div>
+        </div>
+
+        <div class="process-steps">
+          <h3>Hogyan dolgozunk?</h3>
+          <div class="process-step">
+            <div>
+              <h4>Felmérés és célok kitűzése</h4>
+              <p>Az első alkalommal megismerjük a helyzetedet: mikor és milyen helyzetekben bizonytalanodsz el, mi gátol a magabiztos viselkedésben. Közös célkitűzéssel kezdünk.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Gátló hiedelmek feltárása</h4>
+              <p>Azonosítjuk azokat a negatív belső monológokat és hiedelmeket ('Nem vagyok elég jó', 'Biztosan kudarcot vallok'), amelyek automatikusan aktiválódnak kihívások előtt.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Új gondolkodásmód kialakítása</h4>
+              <p>Kognitív technikákkal átírjuk a negatív mintákat, reálisabb és támogatóbb belső párbeszédet építünk. Gyakorlati feladatokkal erősítjük az új viselkedéseket.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Gyakorlás és visszajelzés</h4>
+              <p>Konkrét munkahelyi szituációkban gyakoroljuk az új készségeket (pl. prezentáció, konfliktuskezelés, határszabás), és közösen értékeljük az eredményeket.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="results">
+          <h3>Mi változik az együttműködés után?</h3>
+          <ul>
+            <li>Magabiztosabban állsz ki az álláspontod mellett és mered vállalni a láthatóságot igénylő feladatokat</li>
+            <li>Rugalmasabban kezeled a változásokat és a váratlan helyzeteket</li>
+            <li>Csökken a szorongásod és a túlgondolás, több energiád marad a tényleges munkára</li>
+            <li>Proaktívabbá válsz: nem vársz a tökéletes pillanatra, hanem cselekszel</li>
+            <li>Reálisabb önképed lesz: látod az erősségeidet és elfogadod, hogy a hibák a tanuláshoz tartoznak</li>
+          </ul>
+        </div>
+
+        <div class="text-center mb-xl">
+          <p><strong>Egyéni konzultáció:</strong> 18.000 Ft/alkalom (50 perc) | <a href="#" onclick="switchPage('arak'); return false;">Részletes árak és csomagok</a></p>
+        </div>
+
+        <div class="faq-section mb-xl">
+          <h3 class="mb-lg">Gyakori kérdések</h3>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Mennyi idő alatt lehet észrevenni a változást?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Ez egyéni, de sok ügyfelem már 3-4 alkalom után arról számol be, hogy könnyebben kezeli a korábban stresszes helyzeteket. A tartós, mélyebb változáshoz általában 6-8 alkalom javasolt.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Mi a különbség az önbizalom és az önértékelés között?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Az önbizalom specifikus helyzetekre vonatkozik ('Bízom abban, hogy ezt a feladatot meg tudom oldani'), míg az önértékelés egy általánosabb fogalom ('Érdemesnek tartom magam a szeretetre, sikerekre').
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3>Készen állsz a változásra?</h3>
+          <p class="mb-lg">Ne hagyd, hogy a kételyek korlátozzanak. Az első lépés a legnehezebb – de nem kell egyedül megtenned.</p>
+          <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek ehhez a témához</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SZOLGÁLTATÁS: KARRIER (with image) ===== -->
+    <section id="karrier" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Karrier és szakmai iránykeresés</h1>
+          <p>Támogatás a karrierút minden szakaszában – pályaválasztástól a vezetői fejlődésig</p>
+          <div class="page-header-image">
+            <img src="/images/services/karrier-iranykereses.jpg" alt="Karrier és szakmai iránykeresés" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light)\'>[Kép: karrier-iranykereses.jpg]</span>'">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pain-points">
+          <h3>Ismerős helyzetek?</h3>
+          <ul>
+            <li>Pályaválasztás előtt állsz, de nem tudod, melyik irány illik hozzád?</li>
+            <li>Állást keresel, de a jelentkezések nem hozzák meg a várt eredményt?</li>
+            <li>Új munkahelyre kerültél, de nehezen illeszkedsz be vagy bizonytalan vagy a szerepedben?</li>
+            <li>Elakadtál a jelenlegi pozíciódban, és nem látod a következő lépést?</li>
+            <li>Karrierváltást fontolgatsz, de félsz a bizonytalanságtól vagy a pénzügyi kockázattól?</li>
+            <li>Úgy érzel, a képességeid és a jelenlegi munkád nincs összhangban?</li>
+          </ul>
+          <p><em>A karrier nem egyenes vonal – hanem út, kanyarokkal, elágazásokkal és újrafelfedezésekkel. Nem számít, melyik szakaszban tartasz: egy strukturált, pszichológiai alapú támogatás segít tisztázni az irányt és magabiztosan lépni.</em></p>
+        </div>
+
+        <div class="promises">
+          <h3>Mit kapsz a konzultációk során?</h3>
+          <div class="promise-item">
+            <div class="promise-icon">🗺️</div>
+            <div><strong>Személyre szabott karriertérkép</strong><br>Nem általános tanácsokat kapsz, hanem a te értékeidre, készségeidre, életszakaszodra és piaci igényeidre épülő útitervet</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🎓</div>
+            <div><strong>Pályaválasztási módszertan</strong><br>Önismereti eszközök, érdeklődés-feltárás és reális pályaopciók feltérképezése</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">📄</div>
+            <div><strong>Álláskeresési stratégia</strong><br>Önéletrajz-optimalizálás, LinkedIn profil építés, interjúfelkészítés és hálózati stratégiák</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🤝</div>
+            <div><strong>Beilleszkedési és előmeneteli támogatás</strong><br>Onboarding stratégia, határhúzás, csapatdinamika és a láthatóság növelése</div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon">🔄</div>
+            <div><strong>Karrierváltási keretrendszer</strong><br>Kockázatelemzés, átmeneti tervezés, pénzügyi és érzelmi felkészülés</div>
+          </div>
+        </div>
+
+        <div class="process-steps">
+          <h3>Hogyan dolgozunk?</h3>
+          <div class="process-step">
+            <div>
+              <h4>Karrierfelmérés és életszakasz-azonosítás</h4>
+              <p>Átbeszéljük a jelenlegi helyzetedet: hol tartasz a karrierútban? Mi a legfontosabb kérdésed most? Feltérképezzük az erősségeidet, motivációidat és a lehetséges irányokat.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Célkitűzés és személyre szabott stratégia</h4>
+              <p>Közösen meghatározzuk a rövid és hosszú távú céljaidat. Készítünk egy lépésről-lépésre haladó akciótervet, amely reális időkeretet, mérhető mérföldköveket és a te életszakaszodhoz igazított eszközöket tartalmaz.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Eszköztár és gyakorlati felkészülés</h4>
+              <p>A stratégiától függően: önéletrajz/LinkedIn optimalizálás, interjú szituációk gyakorlása, tárgyalási technikák, onboarding tervezés, vagy karrierváltási kockázatelemzés.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div>
+              <h4>Megvalósítás és kísérés</h4>
+              <p>A cselekvés fázisában rendszeres ellenőrző pontokat tartunk. Ha elakadsz, új lehetőség adódik, vagy változnak a körülmények, közösen finomhangoljuk a stratégiát.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="results">
+          <h3>Mi változik az együttműködés után?</h3>
+          <ul>
+            <li>Tisztán látod, milyen irányba szeretnél tartani – és miért</li>
+            <li>Magabiztosabban pályázol, tárgyal és kommunikálod az értékeidet</li>
+            <li>Csökken a bizonytalanság és a halogatás, helyette cselekvés lép</li>
+            <li>Reális elvárásokat alakítasz ki magaddal és a piaccal szemben</li>
+            <li>Hosszú távú szakmai elégedettséget és stabilabb munkahelyi jelenlétet érsz el</li>
+            <li>Rugalmasabban kezeled a karrierút kanyarjait – mert van egy belső iránytűd</li>
+          </ul>
+        </div>
+
+        <div class="text-center mb-xl">
+          <p><strong>Egyéni konzultáció:</strong> 18.000 Ft/alkalom (50 perc) | 5 alkalmas csomag: 85.000 Ft (személyesen és online) | 10 alkalmas csomag: 160.000 Ft (online)<br>
+          <a href="#" onclick="switchPage('arak'); return false;">Részletes árak és csomagok</a></p>
+        </div>
+
+        <div class="faq-section mb-xl">
+          <h3 class="mb-lg">Gyakori kérdések</h3>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Mikor érdemes karriertanácsadóhoz fordulni?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Bármikor, amikor karrierkérdésben elakadtál: pályaválasztás előtt, álláskeresés közben, új szerepben, előmeneteli döntés előtt, vagy karrierváltás fontolgatásakor. Nem csak krízishelyzetben – megelőzésre és tudatos tervezésre is kiválóan alkalmas.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Segítesz konkrét állást találni?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Nem közvetítek állásokat, de felkészítelek arra, hogyan keresd hatékonyan: hogyan építs szakmai hálózatot, hogyan optimalizáld az önéletrajzod és a LinkedIn profilod, hogyan készülj fel az interjúkra, és hogyan tárgyalj a bérezésről.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Működik-e online is a karriertanácsadás?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Igen, az online konzultáció ugyanolyan hatékony lehet, mint a személyes találkozó. Különösen előnyös, ha időhiánnyal küzdesz, távolabb élsz, vagy rugalmasabb időpontokra van szükséged.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3>Készen állsz a következő lépésre?</h3>
+          <p class="mb-lg">Nem számít, hol tartasz a karrierútban – ha szeretnéd tudatosan és magabiztosan folytatni, itt a helyed.</p>
+          <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek karriertanácsadásra</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder pages for other services (simplified) -->
+    <section id="stressz" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Munkahelyi stressz és kiégés</h1>
+          <p>Előzd meg vagy kezeld a kiégést, és állítsd helyre a munkahelyi egyensúlyt</p>
+          <div class="page-header-image">[Kép: stressz-kieges.jpg]</div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <p style="max-width: 700px; margin: 0 auto var(--spacing-lg);">
+          Ez az oldal a teljes tartalommal elkészült a Markdown formátumban. A prototípusban a struktúra bemutatása érdekében itt egy rövidített verzió látható.
+        </p>
+        <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek stresszkezelésre</button>
+      </div>
+    </section>
+
+    <section id="vezeto" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Vezetői működés és döntési helyzetek</h1>
+          <p>Fejleszd vezetői kompetenciáidat és kezeld magabiztosan a csapatod</p>
+          <div class="page-header-image">[Kép: vezetoi-dontesek.jpg]</div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <p style="max-width: 700px; margin: 0 auto var(--spacing-lg);">
+          Ez az oldal a teljes tartalommal elkészült a Markdown formátumban. A prototípusban a struktúra bemutatása érdekében itt egy rövidített verzió látható.
+        </p>
+        <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek vezetőfejlesztésre</button>
+      </div>
+    </section>
+
+    <!-- ===== RÓLAM OLDAL ===== -->
+    <section id="rolam" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Rólam – Benedek Szilvia</h1>
+          <p>Munka- és szervezetpszichológus, karriertanácsadó Budán – 25+ év tapasztalattal</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="about-hero">
+          <div>
+            <h2>Üdvözöllek! Benedek Szilvia vagyok</h2>
+            <p>Munka- és szervezetpszichológus és karriertanácsadóként segítek megtalálni a belső erőforrásaidat és a számodra megfelelő szakmai irányt – Budán, személyesen vagy online.</p>
+            <p style="margin-top: var(--spacing-md);"><strong>Személyes konzultáció Budán, II. kerület – vagy online, ha az kényelmesebb</strong></p>
+          </div>
+          <div class="about-image">
+            <img src="/images/team/szilvia-portre.jpg" alt="Benedek Szilvia portré" onerror="this.parentElement.innerHTML='<span style=\'color:var(--text-light);font-size:0.875rem\'>[Portré: szilvia-portre.jpg]</span>'">
+          </div>
+        </div>
+        <!-- ... (rest of about page content same as before) ... -->
+        <div class="text-center" style="margin-top: var(--spacing-xl);">
+          <h3>Készen állsz a változásra?</h3>
+          <p class="mb-lg">Nem számít, hol tartasz a karrierútban vagy a személyes fejlődésben – ha szeretnéd tudatosan és támogatottan folytatni, itt a helyed.</p>
+          <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+            <button class="btn" onclick="switchPage('kapcsolat')">Időpontot kérek</button>
+            <button class="btn btn-secondary" onclick="switchPage('karrier')">Nézd meg a szolgáltatásaimat</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ÁRAK OLDAL - MODIFIED PRICING LAYOUT ===== -->
+    <section id="arak" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Árak és csomagok</h1>
+          <p>Átlátható díjszabás a munkapszichológiai konzultációkhoz</p>
+        </div>
+      </div>
+      <div class="container">
+        <p class="text-center mb-xl" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+          A konzultációk díja az alkalom hosszától (50 perc) és a választott csomagtól függ. Minden alkalom tartalmazza az előkészületet, a feldolgozást és az esetleges rövid e-mailes egyeztetést az ülések között.
+        </p>
+
+        <div class="pricing-table">
+          <!-- Row 1: 3 standard cards -->
+          <div class="pricing-card">
+            <h3>Egyéni alkalom</h3>
+            <div class="price">18.000 Ft</div>
+            <p><em>alkalmonként</em></p>
+            <ul>
+              <li>✓ 50 perces konzultáció</li>
+              <li>✓ Személyesen vagy online</li>
+              <li>✓ Előkészület és feldolgozás</li>
+              <li>✓ Rövid e-mailes egyeztetés</li>
+            </ul>
+            <p class="pricing-note">Ideális első konzultációhoz vagy eseti támogatáshoz.</p>
+          </div>
+          <div class="pricing-card featured">
+            <h3>5 alkalmas csomag</h3>
+            <div class="price">85.000 Ft</div>
+            <p><em>17.000 Ft/alkalom</em></p>
+            <ul>
+              <li>✓ 5 × 50 perces konzultáció</li>
+              <li>✓ <strong>Személyesen és online</strong></li>
+              <li>✓ Folyamatos kísérés</li>
+              <li>✓ Rugalmas időpontok</li>
+            </ul>
+            <p class="pricing-note">Folyamatos munkához ajánlott, közepes időtávú célokhoz.</p>
+          </div>
+          <div class="pricing-card">
+            <h3>10 alkalmas csomag</h3>
+            <div class="price">160.000 Ft</div>
+            <p><em>16.000 Ft/alkalom</em></p>
+            <ul>
+              <li>✓ 10 × 50 perces konzultáció</li>
+              <li>✓ <strong>Online konzultáció</strong></li>
+              <li>✓ Hosszú távú folyamat támogatása</li>
+              <li>✓ Prioritási időpont-foglalás</li>
+            </ul>
+            <p class="pricing-note">Hosszú távú folyamatokhoz (pl. karrierváltás, kiégésből való kilábalás).</p>
+          </div>
+          
+          <!-- Row 2: Tesztkitöltés - centered, horizontal card -->
+          <div class="pricing-card test-card">
+            <div class="content">
+              <h3>Tesztkitöltés</h3>
+              <p style="margin-bottom: var(--spacing-sm); color: var(--text-light);"><em>Egyedi igényekhez igazított vagy pályaválasztási tesztek</em></p>
+              <ul>
+                <li>Pályaválasztási tesztek</li>
+                <li>Személyiségfelmérő eszközök</li>
+                <li>Eredmények szakmai értelmezése</li>
+                <li>Integrálás a tanácsadási folyamatba</li>
+              </ul>
+            </div>
+            <div class="price">Egyeztetés<br>alapján</div>
+          </div>
+        </div>
+
+        <div style="background: white; padding: var(--spacing-lg); border-radius: var(--radius); margin: var(--spacing-xl) 0; border: 1px solid var(--border);">
+          <h3>Fizetés és lemondás</h3>
+          <p><strong>Fizetési módok:</strong> Banki átutalás vagy készpénz. A csomagok díja előre fizetendő. Számlát igény szerint kiállítok.</p>
+          <p style="margin-top: var(--spacing-sm);"><strong>Lemondás:</strong> A lemondást vagy időpontmódosítást legkésőbb 24 órával a konzultáció előtt kérem jelezni. Ezen határidőn belüli lemondás esetén az alkalom díja teljes egészében fizetendő. Kivétel: vis maior helyzet (betegség, baleset), amelyet igazolással kérlek jelezz.</p>
+        </div>
+
+        <div class="faq-section mb-xl">
+          <h3 class="mb-lg">Gyakori kérdések a díjszabásról</h3>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Van-e kedvezmény diákoknak vagy munkanélkülieknek?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Jelenleg egységes díjszabás érvényes, de a pénzügyi helyzet egyéni megbeszélése esetén rugalmasan kezelem a csomagbontást vagy a részletfizetést. Kérlek, jelezd előre, hogy megtaláljuk a számodra működő megoldást.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Mi történik, ha egy csomagot nem használok fel időben?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              A csomagok 6 hónapon belül felhasználhatók. Ha ennél hosszabb időre van szükséged, egyeztessünk előre, és személyre szabott ütemezést készítünk.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Kiállítasz-e számlát vagy nyugtát?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              Igen, minden fizetésről számlát állítok ki. Kérlek, jelezd a számlázási nevet és címet az első alkalom előtt.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3>Kérdésed van a díjszabással kapcsolatban?</h3>
+          <p class="mb-lg">Nyugodtan írj, ha nem vagy biztos benne, melyik csomag illik hozzád. Szívesen segítek a döntésben.</p>
+          <button class="btn" onclick="switchPage('kapcsolat')">Írj nekem</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KAPCSOLAT OLDAL ===== -->
+    <section id="kapcsolat" class="page">
+      <div class="page-header">
+        <div class="container">
+          <h1>Kapcsolat</h1>
+          <p>Vedd fel velem a kapcsolatot vagy foglalj időpontot</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Elérhetőségek</h3>
+            <div class="contact-item">
+              <div class="contact-icon">👤</div>
+              <div>
+                <strong>Benedek Szilvia</strong><br>
+                <span style="color: var(--text-light);">Munka- és szervezetpszichológus</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Cím</strong><br>
+                1023 Budapest, Komjádi Béla u. 3. fsz. 2.
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Telefon</strong><br>
+                <a href="tel:+36309665980">+36 30 966 5980</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>E-mail</strong><br>
+                <a href="mailto:hello@benedekszilvia.hu">hello@benedekszilvia.hu</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <strong>Nyitvatartás</strong><br>
+                Hétfő–Péntek: 9:00–18:00 (egyeztetés alapján)
+              </div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: var(--spacing-md); border-radius: var(--radius); margin-top: var(--spacing-lg);">
+              <strong>📍 Budai rendelő</strong><br>
+              <span style="color: var(--text-light); font-size: 0.95rem;">Személyes konzultációk csendes, biztonságos környezetben a II. kerületben.</span>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Írj üzenetet</h3>
+            <p style="margin-bottom: var(--spacing-md); color: var(--text-light);">Töltsd ki az alábbi űrlapot, és 24 órán belül válaszolok. Sürgős esetben kérlek, hívj közvetlenül.</p>
+            <form onsubmit="event.preventDefault(); alert('Köszönöm az üzenetedet! Hamarosan jelentkezem.');">
+              <div class="form-group">
+                <label for="name">Név *</label>
+                <input type="text" id="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Tárgy *</label>
+                <select id="subject" required>
+                  <option value="">Válassz...</option>
+                  <option>Önbizalom és agilis működés</option>
+                  <option>Karrier és szakmai iránykeresés</option>
+                  <option>Munkahelyi stressz és kiégés</option>
+                  <option>Vezetői működés és döntési helyzetek</option>
+                  <option>Egyéb kérdés</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Üzenet *</label>
+                <textarea id="message" required></textarea>
+              </div>
+              <div class="form-group gdpr-checkbox">
+                <input type="checkbox" id="gdpr" required>
+                <label for="gdpr">Elfogadom az <a href="#">Adatkezelési tájékoztatót</a> és hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel céljából kezeljék. *</label>
+              </div>
+              <button type="submit" class="btn" style="width: 100%;">Üzenet küldése</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <p>🗺️ <strong>Térkép</strong><br>A térkép csak görgetésre töltődik be a gyorsabb oldalbetöltés érdekében.<br><em>Budapest, II. kerület, Komjádi Béla utca</em></p>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--border);">
+          <p><strong>Inkább telefonálnál?</strong></p>
+          <a href="tel:+36309665980" class="btn" style="margin-top: var(--spacing-sm);">📞 +36 30 966 5980</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Benedek Szilvia</h3>
+          <p>Munka- és szervezetpszichológus, karriertanácsadó Budán. 25+ év tapasztalat a pályaválasztás, stresszkezelés és vezetőfejlesztés területén.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Oldalak</h4>
+          <a href="#" onclick="switchPage('home'); return false;">Főoldal</a>
+          <a href="#" onclick="switchPage('karrier'); return false;">Szolgáltatások</a>
+          <a href="#" onclick="switchPage('rolam'); return false;">Rólam</a>
+          <a href="#" onclick="switchPage('blog'); return false;">Blog</a>
+          <a href="#" onclick="switchPage('arak'); return false;">Árak</a>
+          <a href="#" onclick="switchPage('kapcsolat'); return false;">Kapcsolat</a>
+        </div>
+        <div class="footer-links">
+          <h4>Jogi</h4>
+          <a href="#">Adatkezelési tájékoztató</a>
+          <a href="#">ÁSZF</a>
+        </div>
+      </div>
+      <div class="footer-nap">
+        <p><strong>Benedek Szilvia</strong></p>
+        <p>📍 1023 Budapest, Komjádi Béla u. 3. fsz. 2.</p>
+        <p>📞 <a href="tel:+36309665980" style="color: inherit;">+36 30 966 5980</a></p>
+        <p>✉️ <a href="mailto:hello@benedekszilvia.hu" style="color: inherit;">hello@benedekszilvia.hu</a></p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Benedek Szilvia. Minden jog fenntartva. | Prototípus – nem éles oldal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for prototype functionality -->
+  <script>
+    function switchPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.page === pageId) link.classList.add('active');
+      });
+      document.getElementById('pageSelect').value = pageId;
+      window.scrollTo(0, 0);
+      document.getElementById('mainNav').classList.remove('active');
+    }
+    function toggleMobileNav() { document.getElementById('mainNav').classList.toggle('active'); }
+    function toggleFaq(element) { element.closest('.faq-item').classList.toggle('active'); }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('mainNav').classList.remove('active');
+    });
+  </script>
+</body>
+</html>
