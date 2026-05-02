@@ -1,6 +1,7 @@
 baseURL: "https://benedekszilvia-qwen.netlify.app/"
 languageCode: "hu-HU"
 title: "Benedek Szilvia | Munka- és szervezetpszichológus Budán"
+relativeURLs: true
 uglyURLs: false
 
 # RSS és taxonomy hibák elkerülése
