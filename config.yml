@@ -3,6 +3,11 @@ languageCode: "hu-HU"
 title: "Benedek Szilvia | Munka- és szervezetpszichológus Budán"
 uglyURLs: false
 
+# Hugo szintű author konfiguráció (RSS-hez kell)
+author:
+  name: "Benedek Szilvia"
+  email: "hello@benedekszilvia.hu"
+
 params:
   author: "Benedek Szilvia"
   email: "hello@benedekszilvia.hu"
