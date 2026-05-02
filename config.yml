@@ -8,7 +8,6 @@ disableKinds:
   - "RSS"
   - "taxonomy"
   - "term"
-  - "section"
 
 params:
   author: "Benedek Szilvia"
