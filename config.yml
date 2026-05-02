@@ -1,0 +1,57 @@
+baseURL: "https://qwen.benedekszilvia.hu/"
+languageCode: "hu-HU"
+title: "Benedek Szilvia | Munka- és szervezetpszichológus Budán"
+uglyURLs: false
+
+params:
+  author: "Benedek Szilvia"
+  email: "hello@benedekszilvia.hu"
+  phone: "+36 30 966 5980"
+  address: "1023 Budapest, Komjádi Béla u. 3. fsz. 2."
+  logo_text: "Benedek Szilvia"
+  logo_subtitle_1: "Munka- és szervezetpszichológus"
+  logo_subtitle_2: "Karriertanácsadó"
+  copyright: "© 2026 Benedek Szilvia. Minden jog fenntartva."
+  description: "Munka- és szervezetpszichológus és karriertanácsadó Budán. Segítek a kiégés megelőzésében, a karriertervezésben és a vezetői fejlődésben."
+
+# Navigáció (Legördülő menüvel)
+menu:
+  main:
+    - name: "Főoldal"
+      url: "/"
+      weight: 1
+    - name: "Szolgáltatások"
+      weight: 2
+      hasChildren: true
+    - parent: "Szolgáltatások"
+      name: "Önbizalom és agilis működés"
+      url: "/szolgaltatasok/onbizalom-es-agilis-mukodes/"
+      weight: 1
+    - parent: "Szolgáltatások"
+      name: "Karrier és szakmai iránykeresés"
+      url: "/szolgaltatasok/karrier-es-szakmai-iranykereses/"
+      weight: 2
+    - parent: "Szolgáltatások"
+      name: "Munkahelyi stressz és kiégés"
+      url: "/szolgaltatasok/munkahelyi-stressz-es-kieges/"
+      weight: 3
+    - parent: "Szolgáltatások"
+      name: "Vezetői működés"
+      url: "/szolgaltatasok/vezetoi-mukodes-es-dontesi-helyzetek/"
+      weight: 4
+    - name: "Rólam"
+      url: "/rolam/"
+      weight: 3
+    - name: "Blog"
+      url: "/blog/"
+      weight: 4
+    - name: "Árak"
+      url: "/arak/"
+      weight: 5
+    - name: "Kapcsolat"
+      url: "/kapcsolat/"
+      weight: 6
+
+taxonomies:
+  tag: "tags"
+  category: "categories"

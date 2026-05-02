@@ -1,0 +1,72 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/images"
+
+publish_mode: editorial_workflow
+
+collections:
+  # 1. FŐOLDAL (Single file)
+  - name: "homepage"
+    label: "Főoldal"
+    files:
+      - file: "content/_index.md"
+        name: "home"
+        label: "Főoldal tartalma"
+        fields:
+          - {name: "title", label: "Cím", widget: "string"}
+          - {name: "subtitle", label: "Alcím", widget: "text"}
+          - {name: "body", label: "Törzstartalom", widget: "markdown"}
+
+  # 2. SZOLGÁLTATÁSOK (Collection)
+  - name: "services"
+    label: "Szolgáltatások"
+    folder: "content/szolgaltatasok"
+    create: true
+    slug: "{{slugify .Title}}"
+    fields:
+      - {name: "title", label: "Cím", widget: "string"}
+      - {name: "subtitle", label: "Alcím", widget: "text"}
+      - {name: "featured_image", label: "Kiemelt kép", widget: "image"}
+      - {name: "icon", label: "Ikon (emoji)", widget: "string"}
+      - {name: "body", label: "Tartalom", widget: "markdown"}
+
+  # 3. BLOG BEJEGYZÉSEK (Collection)
+  - name: "blog"
+    label: "Blog bejegyzések"
+    folder: "content/blog"
+    create: true
+    slug: "{{slugify .Title}}"
+    fields:
+      - {name: "title", label: "Cím", widget: "string"}
+      - {name: "date", label: "Dátum", widget: "datetime"}
+      - {name: "tags", label: "Címkék", widget: "list"}
+      - {name: "featured_image", label: "Kiemelt kép", widget: "image"}
+      - {name: "body", label: "Tartalom", widget: "markdown"}
+
+  # 4. EGYEDI OLDALAK (Single files)
+  - name: "pages"
+    label: "Oldalak"
+    files:
+      - file: "content/rolam.md"
+        name: "about"
+        label: "Rólam"
+        fields:
+          - {name: "title", label: "Cím", widget: "string"}
+          - {name: "body", label: "Tartalom", widget: "markdown"}
+      
+      - file: "content/arak.md"
+        name: "pricing"
+        label: "Árak"
+        fields:
+          - {name: "title", label: "Cím", widget: "string"}
+          - {name: "body", label: "Tartalom", widget: "markdown"}
+
+      - file: "content/kapcsolat.md"
+        name: "contact"
+        label: "Kapcsolat"
+        fields:
+          - {name: "title", label: "Cím", widget: "string"}
+          - {name: "body", label: "Tartalom", widget: "markdown"}

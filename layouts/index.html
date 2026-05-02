@@ -1,0 +1,76 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="badge">Személyes konzultáció Budán, II. kerület</span>
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Params.subtitle }}</p>
+      <div class="hero-cta">
+        <a href="/kapcsolat/" class="btn">Időpontot kérek</a>
+        <a href="/szolgaltatasok/" class="btn btn-secondary">Szolgáltatások felfedezése</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/images/team/szilvia-portre.jpg" alt="Benedek Szilvia munka- és szervezetpszichológus portré" loading="eager" width="400" height="500">
+    </div>
+  </div>
+</section>
+
+<section class="section trust-section">
+  <div class="container">
+    <h2 class="text-center">Miért válassz engem?</h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🎓</div>
+        <div>
+          <h4>Szakmai háttér</h4>
+          <p>Munka- és szervezetpszichológus, karriertanácsadó, a Competence Expert tagja</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛠️</div>
+        <div>
+          <h4>Gyakorlati fókusz</h4>
+          <p>Nemcsak elméleti megoldásokat kapsz, hanem konkrét, alkalmazható stratégiákat</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💬</div>
+        <div>
+          <h4>Megértő légkör</h4>
+          <p>Bizalmas, ítélkezésmentes tér, ahol valóban meghallgatnak</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="container">
+    <h2 class="text-center">Miben tudok segíteni?</h2>
+    <div class="services-grid">
+      {{ range where .Site.Pages "Section" "szolgaltatasok" }}
+        <article class="service-card">
+          <div class="service-image">
+            {{ with .Params.featured_image }}<img src="{{ . }}" alt="{{ .Title }}">{{ end }}
+          </div>
+          <div class="service-icon">
+            {{ with .Params.icon }}{{ . }}{{ else }}✨{{ end }}
+          </div>
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Params.subtitle }}</p>
+          <a href="{{ .Permalink }}" class="read-more">Részletek →</a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container text-center">
+    <h2>Személyes találkozások Budán</h2>
+    <p>A konzultációkra a budai II. kerületben, a Komjádi Béla utcában várlak egy csendes, nyugodt környezetben.</p>
+    <a href="/kapcsolat/" class="btn btn-secondary">Lásd a pontos címet</a>
+  </div>
+</section>
+{{ end }}

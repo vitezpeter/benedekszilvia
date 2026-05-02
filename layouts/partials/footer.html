@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Benedek Szilvia</h3>
+        <p>Munka- és szervezetpszichológus, karriertanácsadó Budán.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Oldalak</h4>
+        <a href="/">Főoldal</a>
+        <a href="/szolgaltatasok/">Szolgáltatások</a>
+        <a href="/rolam/">Rólam</a>
+        <a href="/arak/">Árak</a>
+        <a href="/kapcsolat/">Kapcsolat</a>
+      </div>
+      <div class="footer-links">
+        <h4>Jogi</h4>
+        <a href="/adatkezelesi-tajekoztato/">Adatkezelési tájékoztató</a>
+        <a href="/aszf/">ÁSZF</a>
+      </div>
+    </div>
+    <div class="footer-nap">
+      <p><strong>{{ .Site.Params.author }}</strong></p>
+      <p>📍 {{ .Site.Params.address }}</p>
+      <p>📞 <a href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone }}</a></p>
+    </div>
+    <div class="footer-bottom">
+      <p>{{ .Site.Params.copyright }}</p>
+    </div>
+  </div>
+</footer>
