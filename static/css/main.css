@@ -48,13 +48,44 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
 
 /* EREDETI:
 .main-nav ul { display: flex; gap: var(--spacing-md); list-style: none; align-items: center; }
-*/
+
 .main-nav > ul { display: flex; gap: var(--spacing-md); list-style: none; align-items: center; }
 .main-nav a { color: var(--text-body); font-weight: 500; }
 .main-nav a:hover, .main-nav a.active { color: var(--color-cta); }
 .has-dropdown { position: relative; }
 .dropdown { display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); min-width: 250px; padding: var(--spacing-sm); }
 .has-dropdown:hover .dropdown { display: block; }
+*/
+.main-nav > ul { display: flex; gap: var(--spacing-md); list-style: none; align-items: center; }
+.main-nav a { color: var(--text-body); font-weight: 500; }
+.main-nav a:hover, .main-nav a.active { color: var(--color-cta); }
+
+.has-dropdown { 
+  position: relative; 
+  /* Ez a "híd" megakadályozza, hogy az egérmozgatáskor elveszítsük a hover-t */
+  padding-bottom: 5px; 
+  margin-bottom: -5px; 
+}
+
+.dropdown { 
+  display: none; 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: white; 
+  border: 1px solid var(--border); 
+  border-radius: 8px; 
+  box-shadow: var(--shadow); 
+  min-width: 250px; 
+  padding: var(--spacing-sm); 
+  /* Biztosítjuk, hogy a dropdown a header felett/előtt jelenjen meg */
+  z-index: 101; 
+}
+
+/* Hover állapot */
+.has-dropdown:hover .dropdown { 
+  display: block; 
+}
 .mobile-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
 
 /* Hero */
