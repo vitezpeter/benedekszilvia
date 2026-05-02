@@ -52,7 +52,7 @@
       {{ range where .Site.Pages "Section" "szolgaltatasok" }}
         <article class="service-card">
           <div class="service-image">
-            {{ with .Params.featured_image }}<img src="{{ . }}" alt="{{ .Title }}">{{ end }}
+            {{ with .Params.featured_image }}<img src="{{ . }}" alt="{{ $.Title }}">{{ end }}
           </div>
           <div class="service-icon">
             {{ with .Params.icon }}{{ . }}{{ else }}✨{{ end }}
