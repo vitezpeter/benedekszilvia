@@ -1,0 +1,30 @@
+{{ define "main" }}
+<article class="page-content container section">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="subtitle">{{ . }}</p>
+    {{ end }}
+  </header>
+  
+  <div class="content-body">
+    {{ .Content }}
+  </div>
+
+  {{ if .Params.faq_items }}
+  <section class="faq-section section-alt" style="margin-top: var(--spacing-xl); padding: var(--spacing-xl); border-radius: var(--radius);">
+    <h2>Gyakori kérdések</h2>
+    {{ range .Params.faq_items }}
+    <div class="faq-item" style="margin-bottom: var(--spacing-sm);">
+      <div class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
+        <strong>{{ .question }}</strong> <span style="float:right;">+</span>
+      </div>
+      <div class="faq-answer" style="display:none; margin-top: var(--spacing-xs); padding-top: var(--spacing-xs); border-top: 1px solid var(--border);">
+        {{ .answer | markdownify }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+</article>
+{{ end }}

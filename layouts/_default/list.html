@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="container section">
+  <header class="text-center mb-xl">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </header>
+
+  <div class="services-grid">
+    {{ range .Pages }}
+    <article class="service-card">
+      {{ with .Params.featured_image }}
+      <div class="service-image">
+        <img src="{{ . }}" alt="{{ $.Title }}">
+      </div>
+      {{ end }}
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Summary | truncate 150 }}</p>
+      <a href="{{ .Permalink }}" class="read-more">Tovább →</a>
+    </article>
+    {{ else }}
+    <p class="text-center">Jelenleg nincsenek publikus bejegyzések.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
