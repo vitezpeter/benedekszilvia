@@ -45,7 +45,11 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
 .logo-subtitle { font-size: 0.75rem; color: var(--text-light); font-weight: 400; }
 
 /* Navigation */
+
+/* EREDETI:
 .main-nav ul { display: flex; gap: var(--spacing-md); list-style: none; align-items: center; }
+*/
+.main-nav > ul { display: flex; gap: var(--spacing-md); list-style: none; align-items: center; }
 .main-nav a { color: var(--text-body); font-weight: 500; }
 .main-nav a:hover, .main-nav a.active { color: var(--color-cta); }
 .has-dropdown { position: relative; }
@@ -103,7 +107,10 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
   .mobile-toggle { display: block; }
   .main-nav { display: none; width: 100%; }
   .main-nav.active { display: block; }
+/*	EREDETI:
   .main-nav ul { flex-direction: column; padding: var(--spacing-md) 0; border-top: 1px solid var(--border); margin-top: var(--spacing-sm); }
+*/
+  .main-nav > ul { flex-direction: column; padding: var(--spacing-md) 0; border-top: 1px solid var(--border); margin-top: var(--spacing-sm); }
   .has-dropdown .dropdown { position: static; box-shadow: none; border: none; padding-left: var(--spacing-md); }
   .logo-text { line-height: 1.1; }
 }
